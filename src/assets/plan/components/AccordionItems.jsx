@@ -15,7 +15,6 @@ export const AccordionItems = ({ addOrder }) => {
   };
   const handleItemClick = (ancla, sub, index) => {
     verifCapsule(sub);
-    console.log(activeCapsule);
     setSelectedItems((prevSelectedItems) => ({
       ...prevSelectedItems,
       [ancla]: index,
@@ -32,21 +31,21 @@ export const AccordionItems = ({ addOrder }) => {
   return (
     <>
       {optionsCarrousel.map(({ ancla, title, options }, accordionIndex) => (
-        <Accordion itemClasses={itemClasses} key={accordionIndex}>
+        <Accordion disabledKeys={activeCapsule && ["3"]} itemClasses={itemClasses} key={accordionIndex}>
           <AccordionItem
             aria-label={`Accordion ${accordionIndex}`}
             title={title}
+            key={accordionIndex}
             id={ancla}
             indicator={<Arrow />}
-            isDisabled={ancla === "grindOption" && activeCapsule}
           >
             <div className="flex flex-col gap-4 md:flex-row">
-              {options.map(({ sub, summary }, index) => (
+              {options.map(({ sub, summary }, cardIndex) => (
                 <div
-                  onClick={() => handleItemClick(ancla, sub, index)}
-                  key={index}
+                  onClick={() => handleItemClick(ancla, sub, cardIndex)}
+                  key={cardIndex}
                   className={`cursor-pointer rounded-lg p-6 md:pb-20 md:pt-8 ${
-                    selectedItems[ancla] === index
+                    selectedItems[ancla] === cardIndex
                       ? "bg-light-cyan text-white"
                       : "bg-white-light text-dark-gray-blue hover:bg-light-pink"
                   }`}

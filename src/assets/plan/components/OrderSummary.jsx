@@ -1,9 +1,12 @@
 export const OrderSummary = ({ order }) => {
   const orderInfo = [
-    { label: "I drink my coffee as", value: order.preferences },
-    { label: "with a Decaf type of", value: order.beanType },
+    {
+      label: order.preferences === "Capsule" ? "I drink my coffee using" : "I drink my coffee as",
+      value: order.preferences,
+    },
+    { label: "with a", value: order.beanType },
     { label: "", value: order.quantity },
-    { label: "ground ala", value: order.grindOption },
+    { label: order.grindOption !== "Wholebean" ? "ground ala" : "", value: order.grindOption },
     { label: "sent to me", value: order.deliverie },
   ];
 
