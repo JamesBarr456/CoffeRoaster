@@ -1,4 +1,4 @@
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/react";
 import { TextSummary } from "./TextSummary";
 
 export const ModalProduct = ({ isOpen, orderInfo, onOpenChange }) => {
@@ -6,7 +6,7 @@ export const ModalProduct = ({ isOpen, orderInfo, onOpenChange }) => {
     <Modal backdrop="opaque" isOpen={isOpen} placement="center" onOpenChange={onOpenChange} classNames={{
       base: "mx-6",
       body: "py-6 md:p-10",
-     
+
     }} >
       <ModalContent>
         {(onClose) => (
@@ -21,8 +21,8 @@ export const ModalProduct = ({ isOpen, orderInfo, onOpenChange }) => {
               </p>
             </ModalBody>
             <ModalFooter>
-              <button onClick={onClose} className="rounded-md w-full bg-light-cyan px-6 py-4  font-fraunces text-lg text-white">
-                Checkout <span>$19.20 / mo</span>
+              <button onClick={onClose} className="rounded-md w-full transition-all md:w-1/2 relative bg-light-cyan px-6 py-4  font-fraunces text-lg text-white">
+                Checkout <span className="md:absolute md:text-3xl  md:text-dark-gray-blue md:top-0 md:left-0 md:-translate-x-[100%] md:w-full md:translate-y-1/3">$19.20 / mo</span>
               </button>
             </ModalFooter>
           </>
@@ -31,4 +31,3 @@ export const ModalProduct = ({ isOpen, orderInfo, onOpenChange }) => {
     </Modal>
   )
 }
-

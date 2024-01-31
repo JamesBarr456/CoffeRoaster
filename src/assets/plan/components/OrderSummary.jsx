@@ -8,7 +8,7 @@ export const OrderSummary = ({ order }) => {
 
   const orderInfo = [
     {
-      label: isCapsule ? '"I drink my coffee using ' : '"I drink my coffee as ',
+      label: isCapsule ? '“I drink my coffee using ' : '“I drink my coffee as ',
       value: order.preferences,
     },
     { label: ", with a ", value: order.beanType },
