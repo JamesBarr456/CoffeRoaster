@@ -43,9 +43,6 @@ export const Accordion = () => {
         <div className="flex w-full flex-col items-center gap-12 lg:gap-20">
           <AccordionItems addOrder={addOrder} />
           <OrderSummary order={orderState} />
-          <button className="rounded-md bg-light-cyan px-8 py-4  font-fraunces text-lg text-white">
-            Create your plan
-          </button>
         </div>
       </div>
     </section>
