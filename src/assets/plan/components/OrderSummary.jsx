@@ -1,14 +1,15 @@
 import { ModalProduct } from "./ModalProduct";
 import { TextSummary } from "./TextSummary";
 import { useDisclosure } from "@nextui-org/react";
+import { Button } from "../../common/Button";
 
 export const OrderSummary = ({ order }) => {
   const isCapsule = order.preferences === "Capsule";
-  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const orderInfo = [
     {
-      label: isCapsule ? '“I drink my coffee using ' : '“I drink my coffee as ',
+      label: isCapsule ? "“I drink my coffee using " : "“I drink my coffee as ",
       value: order.preferences,
     },
     { label: ", with a ", value: order.beanType },
@@ -35,14 +36,14 @@ export const OrderSummary = ({ order }) => {
           <TextSummary orderInfo={renderOrderInfo} />
         </p>
       </div>
-      <button
-        onClick={onOpen}
-        className={`rounded-md ${isAnyFieldEmpty && "opacity-50"} bg-light-cyan px-8 py-4 font-fraunces text-lg text-white`}
-        disabled={isAnyFieldEmpty}
-      >
+      <Button onClick={onOpen} disabled={isAnyFieldEmpty}>
         Create your plan
-      </button>
-      <ModalProduct isOpen={isOpen} orderInfo={renderOrderInfo} onOpenChange={onOpenChange} />
+      </Button>
+      <ModalProduct
+        isOpen={isOpen}
+        orderInfo={renderOrderInfo}
+        onOpenChange={onOpenChange}
+      />
     </div>
   );
 };

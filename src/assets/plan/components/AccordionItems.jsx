@@ -2,6 +2,70 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import { useState } from "react";
 import { optionsCarrousel, Arrow } from "../static/Data";
 
+const OpcionAccordion = ({
+  ancla,
+  sub,
+  summary,
+  cardIndex,
+  handleItemClick,
+  selectedItems,
+}) => {
+  const selectedClass =
+    selectedItems[ancla] === cardIndex
+      ? "bg-light-cyan text-white"
+      : "bg-white-light text-dark-gray-blue hover:bg-light-pink";
+
+  return (
+    <div
+      onClick={() => handleItemClick(ancla, sub, cardIndex)}
+      key={cardIndex}
+      className={`cursor-pointer rounded-lg p-6 md:pb-20 md:pt-8 ${selectedClass}`}
+    >
+      <h2 className="mb-2 font-fraunces text-2xl ">{sub}</h2>
+      <p className="font-barlow text-base ">{summary}</p>
+    </div>
+  );
+};
+
+const SeccionAccordion = ({
+  ancla,
+  title,
+  options,
+  accordionIndex,
+  handleItemClick,
+  selectedItems,
+  activeCapsule,
+  itemClasses,
+}) => (
+  <Accordion
+    disabledKeys={activeCapsule && ["3"]}
+    itemClasses={itemClasses}
+    key={accordionIndex}
+  >
+    <AccordionItem
+      aria-label={`Accordion ${accordionIndex}`}
+      title={title}
+      key={accordionIndex}
+      id={ancla}
+      indicator={<Arrow />}
+    >
+      <div className="flex flex-col gap-4 md:flex-row">
+        {options.map(({ sub, summary }, cardIndex) => (
+          <OpcionAccordion
+            key={cardIndex}
+            ancla={ancla}
+            sub={sub}
+            summary={summary}
+            cardIndex={cardIndex}
+            handleItemClick={handleItemClick}
+            selectedItems={selectedItems}
+          />
+        ))}
+      </div>
+    </AccordionItem>
+  </Accordion>
+);
+
 export const AccordionItems = ({ addOrder }) => {
   const [selectedItems, setSelectedItems] = useState({});
   const [activeCapsule, setActiveCapsule] = useState(false);
@@ -13,6 +77,7 @@ export const AccordionItems = ({ addOrder }) => {
       setActiveCapsule(false);
     }
   };
+
   const handleItemClick = (ancla, sub, index) => {
     verifCapsule(sub);
     setSelectedItems((prevSelectedItems) => ({
@@ -30,33 +95,16 @@ export const AccordionItems = ({ addOrder }) => {
 
   return (
     <>
-      {optionsCarrousel.map(({ ancla, title, options }, accordionIndex) => (
-        <Accordion disabledKeys={activeCapsule && ["3"]} itemClasses={itemClasses} key={accordionIndex}>
-          <AccordionItem
-            aria-label={`Accordion ${accordionIndex}`}
-            title={title}
-            key={accordionIndex}
-            id={ancla}
-            indicator={<Arrow />}
-          >
-            <div className="flex flex-col gap-4 md:flex-row">
-              {options.map(({ sub, summary }, cardIndex) => (
-                <div
-                  onClick={() => handleItemClick(ancla, sub, cardIndex)}
-                  key={cardIndex}
-                  className={`cursor-pointer rounded-lg p-6 md:pb-20 md:pt-8 ${
-                    selectedItems[ancla] === cardIndex
-                      ? "bg-light-cyan text-white"
-                      : "bg-white-light text-dark-gray-blue hover:bg-light-pink"
-                  }`}
-                >
-                  <h2 className="mb-2 font-fraunces text-2xl ">{sub}</h2>
-                  <p className="font-barlow text-base ">{summary}</p>
-                </div>
-              ))}
-            </div>
-          </AccordionItem>
-        </Accordion>
+      {optionsCarrousel.map((carouselItem, accordionIndex) => (
+        <SeccionAccordion
+          key={accordionIndex}
+          {...carouselItem}
+          accordionIndex={accordionIndex}
+          handleItemClick={handleItemClick}
+          selectedItems={selectedItems}
+          activeCapsule={activeCapsule}
+          itemClasses={itemClasses}
+        />
       ))}
     </>
   );

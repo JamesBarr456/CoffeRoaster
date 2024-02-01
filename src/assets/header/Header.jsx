@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Close, Logo, Menu } from "./static/index";
 
+const commonStylesNav = "hover:text-dark-gray-blue md:uppercase";
+const bgSidebar =
+  "bg-gradient-to-t from-white/50  from-10% via-white/60 via-30% to-white/100 to-60%";
+
 export const Header = () => {
   const [sidebar, setSidebar] = useState(false);
 
@@ -12,7 +16,7 @@ export const Header = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
-        handlerMenu();
+        setSidebar(false);
       }
     };
 
@@ -28,18 +32,15 @@ export const Header = () => {
       <Logo className="text-dark-gray-blue" />
 
       <div
-        className={`${sidebar ? "flex" : "hidden"} absolute left-0 top-20 z-10 min-h-screen  min-w-full flex-col items-center gap-8 bg-gradient-to-t  from-white/50 from-10% via-white/60 via-30% to-white/100 to-60%  pt-10 font-fraunces  text-2xl font-bold text-dark-gray-blue md:static md:min-h-0 md:w-auto md:min-w-0 md:flex-row md:bg-inherit md:pt-0 md:font-barlow md:text-base md:text-light-gray`}
+        className={`${sidebar ? "flex" : "hidden"} ${bgSidebar} absolute left-0 top-20 z-10 min-h-screen min-w-full flex-col items-center gap-8  pt-10 font-fraunces text-2xl  font-bold text-dark-gray-blue md:static md:flex md:min-h-0 md:w-auto md:min-w-0 md:flex-row md:bg-inherit md:pt-0 md:font-barlow md:text-base md:text-light-gray`}
       >
-        <NavLink className="hover:text-dark-gray-blue md:uppercase" to="/">
+        <NavLink className={commonStylesNav} to="/">
           Home
         </NavLink>
-        <NavLink className="hover:text-dark-gray-blue md:uppercase" to="/about">
+        <NavLink className={commonStylesNav} to="/about">
           About Us
         </NavLink>
-        <NavLink
-          className="hover:text-dark-gray-blue md:uppercase"
-          to="/create"
-        >
+        <NavLink className={commonStylesNav} to="/create">
           Create Your Plan
         </NavLink>
       </div>
