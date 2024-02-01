@@ -42,7 +42,7 @@ const SeccionAccordion = ({
     itemClasses={itemClasses}
     key={accordionIndex}
   >
-    <AccordionItem
+    <AccordionItem 
       aria-label={`Accordion ${accordionIndex}`}
       title={title}
       key={accordionIndex}
@@ -90,7 +90,7 @@ export const AccordionItems = ({ addOrder }) => {
   const itemClasses = {
     title:
       "w-4/5 lg:w-full transition-all xl:mr-20 font-fraunces text-2xl lg:text-3xl xl:text-[40px] text-light-gray",
-    indicator: "data-[open=true]:-rotate-180",
+    indicator: "data-[open=true]:-rotate-180 hover:brightness-150",
   };
 
   return (

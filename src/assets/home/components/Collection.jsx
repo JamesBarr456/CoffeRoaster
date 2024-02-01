@@ -2,7 +2,7 @@ import { Collections } from "../static/Data";
 
 export const Collection = () => {
   return (
-    <section className="container relative mx-auto px-6 py-32 md:px-28 lg:px-0 lg:py-52 xl:px-28">
+    <section className="container transition-all relative mx-auto px-6 py-32 md:px-28 lg:px-0 lg:py-52 xl:px-28">
       <h1 className="absolute left-0 top-14 -z-10 w-full  bg-gradient-to-b from-light-gray to-light-gray/5 bg-clip-text text-center font-fraunces text-[40px] text-transparent md:top-16 md:text-8xl md:tracking-wider lg:top-28 lg:text-[150px]">
         our collection
       </h1>

@@ -1,7 +1,7 @@
 import { LocateUs } from "../static/Data";
 export const OurHeadquarters = () => {
   return (
-    <section className="container mx-auto mb-32 px-6">
+    <section className="container mx-auto mb-32 px-6 transition-all">
       <div className="lg:px-20">
         <h1 className="mb-20 text-center font-fraunces text-2xl text-light-gray md:text-start">
           Our headquarters

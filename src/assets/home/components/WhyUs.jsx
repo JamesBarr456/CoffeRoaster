@@ -2,7 +2,7 @@ import { CardList } from "../static/Data";
 import { Card } from "./Card";
 export const WhyUs = () => {
   return (
-    <section className="container mx-auto mb-32 px-6">
+    <section className="container mx-auto mb-32 px-6 transition-all">
       <div className="relative px-6 pt-16 md:px-14">
         <span className="absolute left-0 top-0 -z-10 h-3/5 w-full rounded-md bg-dark-indigo lg:h-3/4"></span>
         <div className="mb-16 flex flex-col items-center gap-6 text-center">

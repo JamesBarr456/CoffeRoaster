@@ -4,7 +4,7 @@ import { Works } from "../static/Data";
 
 export const HowItWork = () => {
   return (
-    <section className="container mx-auto mb-32 flex flex-col items-center px-6 md:items-start lg:pl-20 lg:pr-36">
+    <section className="container mx-auto mb-32 flex flex-col items-center px-6 md:items-start lg:pl-20 lg:pr-36 transition-all">
       <h1 className="mb-20 text-center font-fraunces text-2xl text-light-gray">
         How it Works
       </h1>

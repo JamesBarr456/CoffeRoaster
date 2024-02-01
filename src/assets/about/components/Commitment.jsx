@@ -1,6 +1,6 @@
 export const Commitment = () => {
   return (
-    <section className="container mx-auto my-32 flex flex-col gap-12 px-6 md:flex-row md:gap-20 lg:gap-32 xl:px-24">
+    <section className="container mx-auto my-32 flex flex-col gap-12 px-6 md:flex-row md:gap-20 lg:gap-32 xl:px-24 transition-all">
       <div className="h-[400px] rounded-lg bg-barista-movil bg-cover bg-no-repeat md:h-[470px] md:w-[281px] md:bg-barista-tablet lg:h-[520px] lg:w-[445px] lg:bg-barista-desktop"></div>
       <div className="text-center md:w-1/2 md:py-12 md:text-start lg:w-2/5 lg:py-24">
         <h1 className="mb-8 font-fraunces text-3xl text-dark-gray-blue">
